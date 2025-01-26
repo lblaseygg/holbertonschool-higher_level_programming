@@ -1,5 +1,5 @@
+#!/usr/bin/python3
 a = 10
-b = 20
+b = 89
 a, b = b, a
-print("a:", a)
-print("b:", b)
+print(f"a={a} - b={b}")
