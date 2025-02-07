@@ -1,49 +1,33 @@
-Module: base_geometry.py
+BaseGeometry class
+==================
 
-Description:
-    This module defines a base geometry class `BaseGeometry`. 
-    The class serves as a foundation for geometric shapes and includes 
-    methods for area computation (not yet implemented) and integer validation.
-
-Class:
-    - BaseGeometry: A base class for geometric operations.
-
-Prototype:
-    class BaseGeometry:
-
-Methods:
-    - area(self): Raises an Exception indicating it is not implemented.
-    - integer_validator(self, name, value): Validates if a given value is a positive integer.
-
-Behavior:
-    - The `area` method is intended to be overridden by subclasses.
-    - Calling `area()` directly on an instance of `BaseGeometry` raises an `Exception` 
-      with the message `"area() is not implemented"`.
-    - The `integer_validator` method ensures that the provided value is an integer 
-      and greater than zero. If not, it raises an appropriate exception.
+This module defines a base geometry class `BaseGeometry`. 
 
 Example usage:
-    bg = BaseGeometry()
-    
-    try:
-        bg.area()
-    except Exception as e:
-        print(e)  # Output: area() is not implemented
 
-    try:
-        bg.integer_validator("size", "10")
-    except Exception as e:
-        print(e)  # Output: size must be an integer
+    >>> bg = BaseGeometry()
 
-    try:
-        bg.integer_validator("size", -5)
-    except Exception as e:
-        print(e)  # Output: size must be greater than 0
+The `area()` method raises an exception:
 
-Test cases:
-    - isinstance(BaseGeometry(), BaseGeometry) → True
-    - issubclass(BaseGeometry, object) → True
-    - Calling BaseGeometry().area() raises Exception → True
-    - BaseGeometry().integer_validator("width", 10) → No Exception
-    - BaseGeometry().integer_validator("width", "10") raises TypeError → True
-    - BaseGeometry().integer_validator("width", -10) raises ValueError → True
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+The `integer_validator()` method ensures that values are positive integers:
+
+    >>> bg.integer_validator("size", 10)  # No error
+
+If the value is not an integer, it raises a TypeError:
+
+    >>> bg.integer_validator("size", "10")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+If the value is not greater than 0, it raises a ValueError:
+
+    >>> bg.integer_validator("size", -5)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be greater than 0
