@@ -1,0 +1,39 @@
+Module: is_kind_of_class.py
+
+Description:
+    This module defines a function `is_kind_of_class` that checks whether an object 
+    is an instance of a specified class or inherits from it.
+
+Function:
+    - is_kind_of_class: Determines if an object is an instance of a class or a subclass.
+
+Prototype:
+    def is_kind_of_class(obj, a_class):
+
+Parameters:
+    - obj: The object to check.
+    - a_class: The class to compare against.
+
+Returns:
+    - True if `obj` is an instance of `a_class` or inherits from it.
+    - False otherwise.
+
+Behavior:
+    - The function utilizes `isinstance(obj, a_class)`, which checks both direct and inherited instances.
+    - It returns `True` if `obj` is an instance of `a_class` or a subclass.
+    - It returns `False` if `obj` is not related to `a_class`.
+
+Example usage:
+    a = 1
+    if is_kind_of_class(a, int):
+        print("{} is an instance or subclass instance of {}".format(a, int.__name__))
+    if is_kind_of_class(a, float):
+        print("{} is an instance or subclass instance of {}".format(a, float.__name__))
+    if is_kind_of_class(a, object):
+        print("{} is an instance or subclass instance of {}".format(a, object.__name__))
+
+Test cases:
+    - is_kind_of_class(1, int) → True
+    - is_kind_of_class(1, float) → False
+    - is_kind_of_class("hello", str) → True
+    - is_kind_of_class("hello", ob
