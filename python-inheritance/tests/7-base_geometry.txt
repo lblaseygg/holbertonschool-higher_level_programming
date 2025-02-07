@@ -5,6 +5,7 @@ This module defines a base geometry class `BaseGeometry`.
 
 Example usage:
 
+    >>> from 7-base_geometry import BaseGeometry
     >>> bg = BaseGeometry()
 
 The `area()` method raises an exception:
