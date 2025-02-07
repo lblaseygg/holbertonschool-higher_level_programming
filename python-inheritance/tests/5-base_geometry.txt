@@ -1,0 +1,23 @@
+Module: base_geometry.py
+
+Description:
+    This module defines an empty class `BaseGeometry`. 
+    It serves as a foundation for future geometric classes.
+
+Class:
+    - BaseGeometry: A placeholder class representing basic geometry.
+
+Prototype:
+    class BaseGeometry:
+
+Behavior:
+    - The class is currently empty, using the `pass` statement.
+    - It can be extended with methods and attributes in the future.
+
+Example usage:
+    bg = BaseGeometry()
+    print(type(bg))  # Output: <class '__main__.BaseGeometry'>
+
+Test cases:
+    - isinstance(BaseGeometry(), BaseGeometry) → True
+    - issubclass(BaseGeometry, object) → True
