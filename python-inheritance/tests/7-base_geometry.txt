@@ -1,34 +1,15 @@
-BaseGeometry class
-==================
-
-This module defines a base geometry class `BaseGeometry`. 
-
-Example usage:
-
-    >>> from 7-base_geometry import BaseGeometry
-    >>> bg = BaseGeometry()
-
-The `area()` method raises an exception:
-
-    >>> bg.area()
-    Traceback (most recent call last):
-        ...
-    Exception: area() is not implemented
-
-The `integer_validator()` method ensures that values are positive integers:
-
-    >>> bg.integer_validator("size", 10)  # No error
-
-If the value is not an integer, it raises a TypeError:
-
-    >>> bg.integer_validator("size", "10")
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
-
-If the value is not greater than 0, it raises a ValueError:
-
-    >>> bg.integer_validator("size", -5)
-    Traceback (most recent call last):
-        ...
-    ValueError: size must be greater than 0
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+    ...
+ValueError: age must be greater than 0
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0

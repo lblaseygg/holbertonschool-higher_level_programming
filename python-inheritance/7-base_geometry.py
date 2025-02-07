@@ -3,19 +3,19 @@
 
 
 class BaseGeometry:
-    """Represent base geometry."""
+    """Base class for geometric shapes."""
 
     def area(self):
-        """Not yet implemented."""
+        """Raises an exception indicating that area is not implemented."""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Validate a parameter as an integer.
+        """Validates that a given value is a positive integer.
 
         Args:
             name (str): The name of the parameter.
             value (int): The parameter to validate.
-        
+
         Raises:
             TypeError: If value is not an integer.
             ValueError: If value is <= 0.
