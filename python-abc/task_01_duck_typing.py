@@ -32,7 +32,7 @@ class Circle(Shape):
             radius (float): The radius of the circle.
         """
         if radius < 0:
-            raise ValueError("Radius cannot be negative")
+            raise ValueError("Radius cannot")
         self.radius = radius
 
     def area(self):
