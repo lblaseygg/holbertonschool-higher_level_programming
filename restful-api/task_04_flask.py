@@ -8,57 +8,43 @@ users = {
     "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
 }
 
-# Route for the root URL
 @app.route("/")
 def home():
     return "Welcome to the Flask API!"
 
-# Route to get list of all usernames
 @app.route("/data")
-def get_data():
+def data():
+    # Return list of all usernames in the API, or an empty list if no users exist
     return jsonify(list(users.keys()))
 
-# Route to check the status
 @app.route("/status")
 def status():
     return "OK"
 
-# Route to get a user's full details by username
 @app.route("/users/<username>")
 def get_user(username):
+    # Return the user data if the username exists
     user = users.get(username)
     if user:
         return jsonify(user)
-    else:
-        return jsonify({"error": "User not found"}), 404
+    return jsonify({"error": "User not found"}), 404
 
-# Route to add a new user via POST
 @app.route("/add_user", methods=["POST"])
 def add_user():
     data = request.get_json()
-
-    # Check if the username is provided
-    if not data.get("username"):
+    
+    # Ensure the username is present
+    username = data.get("username")
+    if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    username = data["username"]
-    
-    # Check if the user already exists
+    # Ensure the username doesn't already exist
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return jsonify({"error": "Username already exists"}), 400
 
     # Add the new user
-    users[username] = {
-        "username": username,
-        "name": data.get("name", ""),
-        "age": data.get("age", ""),
-        "city": data.get("city", "")
-    }
-
-    return jsonify({
-        "message": "User added",
-        "user": users[username]
-    }), 201
+    users[username] = data
+    return jsonify({"message": "User added", "user": data}), 201
 
 if __name__ == "__main__":
     app.run(debug=True)
