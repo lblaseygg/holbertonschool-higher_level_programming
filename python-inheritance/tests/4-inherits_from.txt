@@ -1,0 +1,46 @@
+Module: inherits_from.py
+
+Description:
+    This module defines a function `inherits_from` that checks whether an object 
+    is an inherited instance of a specified class.
+
+Function:
+    - inherits_from: Determines if an object is an instance of a subclass of a given class.
+
+Prototype:
+    def inherits_from(obj, a_class):
+
+Parameters:
+    - obj: The object to check.
+    - a_class: The class to compare against.
+
+Returns:
+    - True if `obj` is an instance of a subclass of `a_class`, but not a direct instance of `a_class`.
+    - False otherwise.
+
+Behavior:
+    - The function utilizes `issubclass(type(obj), a_class)`, which checks if `obj`'s type is a subclass of `a_class`.
+    - It explicitly ensures `obj` is not a direct instance of `a_class` (`type(obj) != a_class`).
+    - It returns `True` if `obj` is an inherited instance (i.e., instance of a subclass of `a_class`).
+    - It returns `False` if `obj` is a direct instance of `a_class` or unrelated.
+
+Example usage:
+    class Base:
+        pass
+
+    class Derived(Base):
+        pass
+
+    obj1 = Derived()
+    obj2 = Base()
+
+    print(inherits_from(obj1, Base))  # True
+    print(inherits_from(obj2, Base))  # False
+    print(inherits_from(obj1, object))  # True
+    print(inherits_from(obj2, object))  # True
+
+Test cases:
+    - inherits_from(Derived(), Base) → True
+    - inherits_from(Base(), Base) → False
+    - inherits_from(Derived(), object) → True
+    - inherits_from(Base(), object) → True
