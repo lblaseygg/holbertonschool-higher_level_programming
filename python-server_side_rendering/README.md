@@ -10,9 +10,36 @@ This project demonstrates server-side rendering techniques using Python and Flas
 - Uses string templating and file operations
 
 ### Task 1: Creating a Basic HTML Template in Flask
-- Sets up a Flask application with basic routes
-- Creates reusable HTML templates using Jinja
-- Implements a consistent layout with header and footer components
+This task focuses on creating a basic Flask application with HTML templates. The application includes:
+
+- A Flask application (`task_01_jinja.py`) with routes for home, about, and contact pages
+- HTML templates in the `templates` directory:
+  - `index.html`: Home page
+  - `about.html`: About page
+  - `contact.html`: Contact page
+  - `header.html`: Reusable header with navigation
+  - `footer.html`: Reusable footer
+  - `404.html`: Error page for not found routes
+
+#### Features
+- Server-side rendering with Flask and Jinja2
+- Reusable template components (header and footer)
+- Consistent navigation across all pages
+- Error handling for 404 pages
+- Responsive design
+
+#### Running the Application
+1. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Run the Flask application:
+```bash
+python3 task_01_jinja.py
+```
+
+3. Access the application at http://localhost:5000
 
 ### Task 2: Creating a Dynamic Template with Loops and Conditions
 - Demonstrates dynamic content rendering using Jinja templates
